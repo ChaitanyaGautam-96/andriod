@@ -1,7 +1,9 @@
 package com.example.makeitrain;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.content.res.ColorStateList;
 import android.icu.text.NumberFormat;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
         NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
         moneyCounter += 1000;
         moneyValue.setText(String.valueOf(numberFormat.format(moneyCounter)));
+        if(moneyCounter >= 20000){
+            moneyValue.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.red));
+        }
+
         Log.d("MainActivity","onClick: Make it rain!"+moneyCounter);
 
     }
